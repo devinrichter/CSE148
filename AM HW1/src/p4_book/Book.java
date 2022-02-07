@@ -1,12 +1,12 @@
 package p4_book;
 
 public class Book {
-	private String title; // instance variable
+	private String title;
 	private double price;
-	
+
 	public Book(String title, double price) {
 		super();
-		this.title = title; // assignment: assign value on the left to the variable on the right
+		this.title = title;
 		this.price = price;
 	}
 
