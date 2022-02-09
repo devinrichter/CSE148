@@ -1,34 +1,16 @@
-package p1_courses;
+package p6;
 
 public class Course {
 	private String courseNumber;
 	private String courseTitle;
 	private int credits;
 
-	// overloaded constructors
 	public Course(String courseNumber, String courseTitle, int credits) {
 		super();
 		this.courseNumber = courseNumber;
 		this.courseTitle = courseTitle;
 		this.credits = credits;
 	}
-
-	public Course(String courseNumber, int credits) {
-		super();
-		this.courseNumber = courseNumber;
-		this.credits = credits;
-	}
-
-	public Course(String courseNumber) {
-		super();
-		this.courseNumber = courseNumber;
-	}
-
-	public Course(int credits) {
-		super();
-		this.credits = credits;
-	}
-
 
 	public String getCourseNumber() {
 		return courseNumber;
@@ -56,7 +38,7 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [courseNumber=" + courseNumber + ", courseTitle=" + courseTitle + ", credits=" + credits + "]";
+		return "Course [" + courseNumber + ", " + courseTitle + ", " + credits + "]";
 	}
 
 }

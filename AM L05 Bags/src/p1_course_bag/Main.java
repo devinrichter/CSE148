@@ -15,12 +15,15 @@ public class Main {
 		myBag.insert(c3);
 		myBag.insert(c4);
 		myBag.display();
-		Course[] matches = myBag.searchByCredits(4);
+		System.out.println();
+		Course[] matches = myBag.removeByCredits(1);
 		System.out.println(Arrays.toString(matches));
-//		Course courseRemoved = myBag.removeByCourseNumber("MAT141");
-//		System.out.println(courseRemoved);
-//		System.out.println();
-//		myBag.display();
+		System.out.println("After removal:");
+		myBag.display();
+		Course courseRemoved = myBag.removeByCourseNumber("MAT141");
+		System.out.println(courseRemoved);
+		System.out.println();
+		myBag.display();
 	}
 
 }
