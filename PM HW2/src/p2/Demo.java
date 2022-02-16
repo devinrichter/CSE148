@@ -1,10 +1,11 @@
 package p2;
 
 public class Demo {
-	private static final String[] threeLetterMajors = {"PED", "CSE", "CST", "MAT", "ENG", "PHY", "PED", "BUS", "PSY" };
+	private static final String[] threeLetterMajors = 
+		{"CSE", "CST", "MAT", "ENG", "PHY", "PED", "BUS", "PSY" };
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 40; i++) {
+		for (int i = 0; i < 10; i++) {
 			String courseNumber = getRandomMajor() + getRandomDigits();
 			System.out.println(courseNumber);
 		} 

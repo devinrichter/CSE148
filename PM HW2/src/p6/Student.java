@@ -6,6 +6,10 @@ public class Student {
 	private Name name;
 	private double gpa;
 	private Course[] arr;
+//	private Course c1;
+//	private Course c2;
+//	private Course c3;
+//	private Course c4;
 
 	public Student(Name name, double gpa, Course[] courses) {
 		this.name = name;

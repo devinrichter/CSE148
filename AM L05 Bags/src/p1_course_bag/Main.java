@@ -15,15 +15,27 @@ public class Main {
 		myBag.insert(c3);
 		myBag.insert(c4);
 		myBag.display();
-		System.out.println();
-		Course[] matches = myBag.removeByCredits(1);
-		System.out.println(Arrays.toString(matches));
-		System.out.println("After removal:");
+		
+		Course copy = myBag.searchByCourseNumber("CSE148");
+		Course newCourse = new Course(copy.getCourseNumber(), "Object Oriented Programming", copy.getCredits());;
+		
+		System.out.println("new Course: " + newCourse);
+		System.out.println("Bag content: ");
 		myBag.display();
-		Course courseRemoved = myBag.removeByCourseNumber("MAT141");
-		System.out.println(courseRemoved);
-		System.out.println();
-		myBag.display();
+		
+//		myBag.searchByCourseNumber("CSE148").setCourseTitle("Object Oriented Programming");
+//		System.out.println("After the change: ");
+//		myBag.display();
+		
+//		System.out.println();
+//		Course[] matches = myBag.removeByCredits(1);
+//		System.out.println(Arrays.toString(matches));
+//		System.out.println("After removal:");
+//		myBag.display();
+//		Course courseRemoved = myBag.removeByCourseNumber("MAT141");
+//		System.out.println(courseRemoved);
+//		System.out.println("After removing MAT141:");
+//		myBag.display();
 	}
 
 }
