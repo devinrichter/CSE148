@@ -1,51 +1,43 @@
-package p5;
+package p1;
 
 import java.util.Arrays;
 
 public class Student {
 	private Name name;
-	private String id;
 	private Course[] arr;
 	
-	private static int idCount = 0;
-
 	public Student(Name name, Course[] arr) {
 		super();
 		this.name = name;
-		this.id = String.valueOf(++idCount);
 		this.arr = arr;
 	}
 	
 	public Student(Student student) {
-		
+		this.name = new Name(student.name);
+		arr = new Course[student.arr.length];
+		for(int i = 0; i < student.arr.length; i++) {
+			arr[i] = new Course(student.arr[i]);
+		}		
 	}
-	
-	public Student(Name name) {
-		super();
-		this.name = name;
-		this.id = String.valueOf(++idCount);
-		this.arr = new Course[4];
-	}
-
 
 	public Name getName() {
 		return name;
 	}
 
 	public void setName(Name name) {
-		this.name = name;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
+		this.name = new Name(name);
 	}
 
 	public Course[] getArr() {
 		return arr;
+	}
+	
+	public Course[] getDeepArr() {
+		Course[] a = new Course[arr.length];
+		for(int i = 0; i < arr.length; i++) {
+			a[i] = new Course(arr[i]);
+		}
+		return a;
 	}
 
 	public void setArr(Course[] arr) {
@@ -54,9 +46,9 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", id=" + id + ", arr=" + Arrays.toString(arr) + "]";
+		return "Student [name=" + name + ", arr=" + Arrays.toString(arr) + "]";
 	}
 	
 	
-	
+
 }

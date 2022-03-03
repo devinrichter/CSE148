@@ -14,7 +14,7 @@ public class StudentBag {
 	public Student searchById(String id) {
 		for(int i = 0; i < nElems; i++) {
 			if(arr[i].getId().equals(id)) {
-				return arr[i];
+				return new Student(arr[i]);
 			}
 		}
 		return null;
