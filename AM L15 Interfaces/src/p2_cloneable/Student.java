@@ -1,6 +1,6 @@
-package p1_comparable;
+package p2_cloneable;
 
-public class Student implements Comparable<Student> {
+public class Student implements Cloneable {
 	private String name;
 	private double gpa;
 
@@ -30,11 +30,10 @@ public class Student implements Comparable<Student> {
 	public String toString() {
 		return "Student [name=" + name + ", gpa=" + gpa + "]";
 	}
-
+	
 	@Override
-	public int compareTo(Student o) {
-		return this.name.compareTo(o.name);
-//		return Double.compare(this.gpa, o.gpa);
+	public Student clone() throws CloneNotSupportedException {
+		return (Student)super.clone();
 	}
 
 }

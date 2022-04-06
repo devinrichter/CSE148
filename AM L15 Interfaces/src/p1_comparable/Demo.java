@@ -18,23 +18,29 @@ public class Demo {
 		list.add(s2);
 		list.add(s3);
 		
-		Arrays.sort(arr);
-		System.out.println(Arrays.toString(arr));
-		Collections.sort(list);
-		System.out.println(list);
-		
+//		Arrays.sort(arr);
+//		System.out.println(Arrays.toString(arr));
+//		
+//		System.out.println(s1.compareTo(s3));
+//		
+//		Collections.sort(list);
+//		System.out.println(list);
+//		
 		System.out.println("The user of Comparator:");
-		Arrays.sort(arr, new Comparator<Student>() {
-
-			@Override
-			public int compare(Student o1, Student o2) {
-				return Double.compare(o1.getGpa(), o2.getGpa());
-			}
-			
-		});
+//		Arrays.sort(arr, new Comparator<Student>() {
+//
+//			@Override
+//			public int compare(Student o1, Student o2) {
+//				return Double.compare(o1.getGpa(), o2.getGpa());
+//			}
+//			
+//		});
+//		
+//		Arrays.sort(arr, (o1, o2) -> Double.compare(o1.getGpa(), o2.getGpa()));
+//		System.out.println(Arrays.toString(arr));
 		
-		Arrays.sort(arr, (o1, o2) -> Double.compare(o1.getGpa(), o2.getGpa()));
-		System.out.println(Arrays.toString(arr));
+		Collections.sort(list, (o1, o2) -> Double.compare(o1.getGpa(), o2.getGpa()));
+		System.out.println(list);
 	}
 
 }
