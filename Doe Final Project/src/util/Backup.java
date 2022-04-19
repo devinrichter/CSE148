@@ -13,6 +13,7 @@ public class Backup {
 			FileOutputStream fos = new FileOutputStream("backupFolder/PersonBag.dat");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(personBag);
+			oos.writeObject(personBag.getnElems());
 			oos.close();
 		} catch (IOException e) {
 			e.printStackTrace();
