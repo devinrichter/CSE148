@@ -1,7 +1,11 @@
 package util;
 
+import java.awt.print.Book;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,51 +23,45 @@ public class Utilities {
 	private static String[] lastNameArr = makeArray(lastNames);
 	private static String[] majorArr = makeMajorArray(majors);
 	private static String[][] titleAndIsbnArr = makeBookTitleIsbnArr(titles, isbns);
-	
-	
-	
+
 	public static String[][] makeBookTitleIsbnArr(String titles, String isbns) {
-		String[][] arr = new String[10][2]; // 10 books, each book contains title and isbn
-		for (int i = 0 ; i < 10; i++) {
-			for(int j = 0; j < 2; j++) {
-				arr[i][j] = getString(5);
+		try {
+			BufferedReader brTitles = new BufferedReader(new FileReader(titles));
+			BufferedReader brIsbns = new BufferedReader(new FileReader(isbns));
+			String[][] arr = new String[38639][2]; 
+			for (int i = 0; i < arr.length; i++) {
+				arr[i][0] = brTitles.readLine();
+				arr[i][1] = brIsbns.readLine();
 			}
+			return arr;
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-	
-		return arr;
+		return null;
 	}
 	
-	private static String getString(int n) {
-		String str = "";
-		for(int i = 0; i < n; i++) {
-			str += (char)(65 + (int)(Math.random() * 26));
-		}
-		return str;
+	public static double emitPrice() {
+		return 0.0;
 	}
 
-	public static String[] emitTitleAndIsbn() {
-		String[] book = titleAndIsbnArr[(int)(Math.random() * titleAndIsbnArr.length)];
-		return book;
-	}
-	
 	public static void importBooks(TextbookBag textbookBag) {
-		for(int i = 0; i < titleAndIsbnArr.length; i++) {
-			Book book =  new Book(titleAndISbnArr[i][0], titleAndISbnArr[i][1], emitName(), emitPrice());
+		for (int i = 0; i < titleAndIsbnArr.length; i++) {
+			Book book = new Book(titleAndIsbnArr[i][0], titleAndIsbnArr[i][1], emitName(), emitPrice());
 			textbookBag.insert(book);
 		}
 	}
-	
-//	public static Name emitName() {
-//		String randFirstName = firstNameArr[random.nextInt(firstNameArr.length)];
-//		String randLastName = lastNameArr[random.nextInt(lastNameArr.length)];
-//		return new Name(randFirstName, randLastName);
-//	}
-	
+
+	public static Name emitName() {
+		String randFirstName = firstNameArr[random.nextInt(firstNameArr.length)];
+		String randLastName = lastNameArr[random.nextInt(lastNameArr.length)];
+		return new Name(randFirstName, randLastName);
+	}
+
 	public static String emitMajor() {
 		String randMajor = majorArr[random.nextInt(majorArr.length)];
 		return randMajor;
 	}
-	
+
 	public static String[] makeMajorArray(String fileName) {
 		File file = new File(fileName);
 		String[] arr;
@@ -100,7 +98,7 @@ public class Utilities {
 		}
 		String[] arr = new String[lineCount];
 		lineCount = 0;
-		while(scanner.hasNextLine()) {
+		while (scanner.hasNextLine()) {
 			arr[lineCount++] = scanner.nextLine();
 		}
 		scanner.close();
