@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import model.Name;
 
-public class Utils {
+public class Utilities {
 	private static Random random = new Random();
 	private static String firstNames = "rawData/names/firstNames.txt";
 	private static String lastNames = "rawData/names/lastNames.txt";
@@ -15,18 +15,42 @@ public class Utils {
 	private static String isbns = "rawData/Textbooks/textbook_isbns.txt";
 	private static String titles = "rawData/Textbooks/textbook_titles.txt";
 
-//	private static String[] firstNameArr = makeArray(firstNames);
-//	private static String[] lastNameArr = makeArray(lastNames);
+	private static String[] firstNameArr = makeArray(firstNames);
+	private static String[] lastNameArr = makeArray(lastNames);
 	private static String[] majorArr = makeMajorArray(majors);
-//	private static String[] isbnArr = makeArray(isbns);
-//	private static String[] titleArr = makeArray(titles);
+	private static String[][] titleAndIsbnArr = makeBookTitleIsbnArr(titles, isbns);
 	
-	public static String[][] makeBookTitleIsbnArr(String isbns, String titles) {
-		return null;
+	
+	
+	public static String[][] makeBookTitleIsbnArr(String titles, String isbns) {
+		String[][] arr = new String[10][2]; // 10 books, each book contains title and isbn
+		for (int i = 0 ; i < 10; i++) {
+			for(int j = 0; j < 2; j++) {
+				arr[i][j] = getString(5);
+			}
+		}
+	
+		return arr;
+	}
+	
+	private static String getString(int n) {
+		String str = "";
+		for(int i = 0; i < n; i++) {
+			str += (char)(65 + (int)(Math.random() * 26));
+		}
+		return str;
 	}
 
 	public static String[] emitTitleAndIsbn() {
-		return null;
+		String[] book = titleAndIsbnArr[(int)(Math.random() * titleAndIsbnArr.length)];
+		return book;
+	}
+	
+	public static void importBooks(TextbookBag textbookBag) {
+		for(int i = 0; i < titleAndIsbnArr.length; i++) {
+			Book book =  new Book(titleAndISbnArr[i][0], titleAndISbnArr[i][1], emitName(), emitPrice());
+			textbookBag.insert(book);
+		}
 	}
 	
 //	public static Name emitName() {

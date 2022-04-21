@@ -1,19 +1,18 @@
 package app;
 
-import java.util.Arrays;
-
-import model.Instructor;
-import model.Name;
-import model.Person;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import model.PersonBag;
-import model.Student;
-import util.Backup;
 import util.Restore;
-import util.Utils;
+import util.Utilities;
+import view.PersonView;
 
-public class Demo {
+public class Demo extends Application {
 
 	public static void main(String[] args) {
+		
+		launch(args);
 //		PersonBag personBag = new PersonBag(100);
 //		Person s1 = new Student("C", "CC", 3.5, "CS");
 //		Person s2 = new Student("D", "DD", 2.5, "IT");
@@ -39,8 +38,19 @@ public class Demo {
 //		restoredBag2.display();
 
 //		Name name = Utils.emitName();
-		String major = Utils.emitMajor();
-		System.out.println(major);
+//		String major = Utils.emitMajor();
+//		System.out.println(major);
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+//		PersonBag personBag = Restore.restorePersonBag();
+		PersonBag personBag = new PersonBag(100);
+		PersonView personView = new PersonView(personBag);
+		Scene scene = new Scene(personView.getRoot(), 800, 500);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
 	}
 
 }

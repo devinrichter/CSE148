@@ -1,29 +1,20 @@
 package app;
 
-import model.Person;
+import javafx.scene.layout.VBox;
 import model.PersonBag;
-import util.Backup;
 import util.Restore;
+import view.PersonView;
 
 public class Demo {
 
-	public static void main(String[] args) {
-//		PersonBag personBag = PersonBag.getPersonBag(100);
-//		Person p1 = new Person("A");
-//		Person p2 = new Person("B");
-//		personBag.insert(p1);
-//		personBag.insert(p2);
-//		personBag.display();
-//		
-//		System.out.println("Show PersonBag under another name: ");
-//		PersonBag newPersonBagName = PersonBag.getPersonBag(100);
-//		newPersonBagName.display();
-//		
-//		Backup.backupPersonBag();
-//		
+	public static void main(String[] args) {		
 		
-		PersonBag myPersonBag = Restore.restorePersonBag();
-		myPersonBag.display();
+		PersonBag personBag = Restore.restorePersonBag();
+		PersonView personView = new PersonView(personBag);
+		VBox root = personView.getRoot();
+		
+		Scene scene = new Scene(root, 800, 500);
+		
 		
 		
 	}
