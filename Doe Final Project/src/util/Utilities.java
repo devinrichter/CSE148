@@ -1,6 +1,5 @@
 package util;
 
-import java.awt.print.Book;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,6 +9,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 import model.Name;
+import model.TextbookBag;
+import model.Book;
 
 public class Utilities {
 	private static Random random = new Random();
@@ -47,7 +48,7 @@ public class Utilities {
 	public static void importBooks(TextbookBag textbookBag) {
 		for (int i = 0; i < titleAndIsbnArr.length; i++) {
 			Book book = new Book(titleAndIsbnArr[i][0], titleAndIsbnArr[i][1], emitName(), emitPrice());
-			textbookBag.insert(book);
+//			textbookBag.insert(book);
 		}
 	}
 
